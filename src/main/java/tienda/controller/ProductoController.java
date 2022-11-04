@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import tienda.dto.ProductoDto;
 import tienda.entities.Producto;
 import tienda.service.ProductoService;
 
@@ -20,8 +21,8 @@ public class ProductoController {
     private ProductoService productoService;
 
     @PostMapping
-    public ResponseEntity<Producto> save(@RequestBody Producto producto){
-        Producto productoSaved = productoService.save(producto);
+    public ResponseEntity<ProductoDto> save(@RequestBody ProductoDto productoDto){
+        ProductoDto productoSaved = productoService.save(productoDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(productoSaved);
     }
 
